@@ -1,0 +1,126 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Weekly Fitness Plan</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Fraunces:opsz,wght@9..144,300;9..144,400&family=Manrope:wght@400;500;600&display=swap">
+<style>
+:root{--deep:#0e1130;--brass:#ffc27a;--bone:#fff0dc;--bg:#f3f0f7;--card:#fcfbfe;--ink:#1b1738;--mute:#655f80;--line:#dcd6e6;--acc:#4a3a9a;--chip:#e9e4f3;
+box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media (prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#0c0e24;--card:#151833;--ink:#efeaf6;--mute:#a39fc0;--line:#272b52;--acc:#ffbf7a;--chip:#1d2146}}
+:root[data-theme="dark"]{--bg:#0c0e24;--card:#151833;--ink:#efeaf6;--mute:#a39fc0;--line:#272b52;--acc:#ffbf7a;--chip:#1d2146}
+html{background:var(--deep);scroll-padding-top:env(safe-area-inset-top,0px)}
+*,*::before,*::after{box-sizing:border-box}
+body{margin:0;background:var(--bg);color:var(--ink);font:400 17px/1.65 Manrope,system-ui,sans-serif;-webkit-font-smoothing:antialiased}
+.wrap{max-width:960px;margin:0 auto;padding:0 28px}
+h1,h2,.num{font-family:Fraunces,Georgia,serif;font-weight:300;letter-spacing:-.02em;margin:0}
+/* hero */
+.hero{background:radial-gradient(70% 60% at 82% 18%,rgba(255,170,100,.22),transparent 70%),linear-gradient(180deg,#0e1130 0%,#241b5a 42%,#6b2f6f 78%,#b24a6b 100%);color:var(--bone);padding:96px 0 88px;position:relative;overflow:hidden}
+.sun{position:absolute;right:-70px;top:-70px;width:380px;height:380px;pointer-events:none;animation:sunrise 2.2s cubic-bezier(.2,.7,.2,1) backwards}
+.sun::before{content:"";position:absolute;inset:0;border-radius:50%;background:repeating-conic-gradient(rgba(255,200,130,.32) 0 3deg,transparent 3deg 12deg);-webkit-mask:radial-gradient(circle,transparent 24%,#000 28%,transparent 72%);mask:radial-gradient(circle,transparent 24%,#000 28%,transparent 72%);animation:spin 70s linear infinite}
+.sun::after{content:"";position:absolute;left:50%;top:50%;width:150px;height:150px;margin:-75px 0 0 -75px;border-radius:50%;background:radial-gradient(circle at 38% 35%,#fff3d2,#ffc46b 50%,#f58f45);box-shadow:0 0 80px 24px rgba(255,170,100,.4);animation:glow 5s ease-in-out infinite}
+@keyframes sunrise{from{transform:translateY(160px);opacity:0}}
+@keyframes spin{to{transform:rotate(360deg)}}
+@keyframes glow{50%{box-shadow:0 0 110px 40px rgba(255,170,100,.55)}}
+.hero .wrap{position:relative;z-index:1}
+.kicker{color:var(--brass);font-size:15px;margin:0 0 28px;font-weight:500;letter-spacing:.02em}
+.hero h1{font-size:clamp(76px,19vw,196px);line-height:.88;font-weight:300}
+.hero p.sub{font-size:clamp(18px,2.6vw,24px);color:#f6dcd6;margin:28px 0 0;max-width:30ch;font-weight:400}
+.days{display:grid;grid-template-columns:repeat(6,1fr);gap:10px;margin-top:64px;height:88px;align-items:end}
+.day{height:100%;background:linear-gradient(180deg,#ffeac2,#f6a65e);border-radius:3px;position:relative;transform-origin:bottom;animation:rise 1s cubic-bezier(.2,.7,.2,1) backwards}
+.day:nth-child(2){animation-delay:.08s}.day:nth-child(3){animation-delay:.16s}.day:nth-child(4){animation-delay:.24s}.day:nth-child(5){animation-delay:.32s}.day:nth-child(6){animation-delay:.4s}
+.day span{position:absolute;top:calc(100% + 10px);left:0;right:0;text-align:center;font-size:13px;color:#f5d9d4}
+@keyframes rise{from{transform:scaleY(0)}}
+/* sections */
+section{padding:72px 0 0}
+h2{font-size:clamp(34px,5.5vw,48px);line-height:1.05}
+.lede{color:var(--mute);margin:10px 0 32px;max-width:46ch}
+.glance{display:grid;grid-template-columns:repeat(4,1fr);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.glance div{padding:32px 24px 30px 0}
+.glance div+div{padding-left:24px;border-left:1px solid var(--line)}
+.num{font-size:clamp(64px,9vw,92px);line-height:1;color:var(--acc)}
+.glance h3{font-size:17px;font-weight:600;margin:14px 0 2px}
+.glance p{margin:0;color:var(--mute);font-size:15px}
+.panel{background:var(--card);border:1px solid var(--line);border-radius:28px;padding:44px}
+.panel .top{display:flex;justify-content:space-between;align-items:flex-end;gap:16px;flex-wrap:wrap;margin-bottom:8px}
+.meta{font-weight:600;color:var(--acc);font-size:15px}
+.chips{display:flex;flex-wrap:wrap;gap:10px;padding:0;margin:28px 0 0;list-style:none}
+.chips li{background:var(--chip);border:1px solid transparent;border-radius:999px;padding:10px 18px;font-size:15px;font-weight:500;transition:border-color .2s,transform .2s}
+.chips li:hover{border-color:#e0823d;transform:translateY(-2px)}
+.habits{display:grid;grid-template-columns:repeat(3,1fr);gap:0;margin:0;padding:0;list-style:none;border-top:1px solid var(--line)}
+.habits li{padding:32px 24px 8px 0}
+.habits li+li{padding-left:24px;border-left:1px solid var(--line)}
+.habits .e{font-size:34px;display:block;margin-bottom:12px}
+.habits b{font-weight:600;display:block}
+.habits span.t{color:var(--mute);font-size:15px}
+footer{margin-top:88px;background:linear-gradient(180deg,#241b5a,var(--deep));color:#c9c0e0;padding:40px 0;font-size:15px}
+footer .num{color:var(--bone);font-size:clamp(24px,4vw,34px)}
+@media (max-width:720px){
+ .sun{width:260px;height:260px;right:-60px;top:-50px;opacity:.8}.sun::after{width:100px;height:100px;margin:-50px 0 0 -50px}
+ .wrap{padding:0 22px}.hero{padding:64px 0 64px}.panel{padding:28px 22px;border-radius:22px}
+ .glance{grid-template-columns:1fr 1fr}.glance div{padding:24px 16px 22px 0}.glance div:nth-child(odd){padding-left:0;border-left:0}.glance div:nth-child(even){padding-left:20px}.glance div:nth-child(n+3){border-top:1px solid var(--line)}
+ .habits{grid-template-columns:1fr}.habits li,.habits li+li{padding:24px 0;border-left:0}.habits li+li{border-top:1px solid var(--line)}
+}
+@media (prefers-reduced-motion:reduce){.day,.sun,.sun::before,.sun::after{animation:none}.chips li{transition:none}}
+:focus-visible{outline:2px solid #e0823d;outline-offset:3px}
+</style>
+</head>
+<body>
+<header class="hero">
+  <div class="sun" aria-hidden="true"></div>
+  <div class="wrap">
+    <p class="kicker">Weekly fitness plan</p>
+    <h1>60,000</h1>
+    <p class="sub">steps every week, 10,000 a day.</p>
+    <div class="days" role="img" aria-label="Six days of 10,000 steps each">
+      <div class="day"><span>Mon</span></div><div class="day"><span>Tue</span></div><div class="day"><span>Wed</span></div><div class="day"><span>Thu</span></div><div class="day"><span>Fri</span></div><div class="day"><span>Sat</span></div>
+    </div>
+  </div>
+</header>
+<main class="wrap">
+  <section>
+    <h2>The week at a glance</h2>
+    <p class="lede">Four commitments, plus one day to recover.</p>
+    <div class="glance">
+      <div><div class="num">3</div><h3>🏋️ Gym sessions</h3><p>Every week</p></div>
+      <div><div class="num">3</div><h3>❤️ Cardio sessions</h3><p>30–45 minutes each</p></div>
+      <div><div class="num">3</div><h3>🧘 Yoga sessions</h3><p>20–30 minutes each</p></div>
+      <div><div class="num">1</div><h3>😴 Recovery day</h3><p>Rest and reset</p></div>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="top"><h2>❤️ Cardio</h2><span class="meta">3 sessions · 30–45 min each</span></div>
+      <p class="lede" style="margin-bottom:0">Pick any of these for each session.</p>
+      <ul class="chips">
+        <li>🏸 Badminton / active sports</li><li>🚶 Brisk walking</li><li>🏃 Jogging / running</li><li>🚴 Cycling</li><li>🏊 Swimming</li><li>🪢 Jump rope</li><li>🚣 Rowing</li><li>🏃 Treadmill</li><li>🚲 Stationary bike</li><li>🥊 Boxing</li><li>💃 Dancing</li><li>🎤 Singing</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <div class="panel">
+      <div class="top"><h2>🧘 Yoga</h2><span class="meta">3 sessions · 20–30 min each</span></div>
+      <p class="lede" style="margin-bottom:0">Build each session from these practices.</p>
+      <ul class="chips">
+        <li>🌬️ Pranayama</li><li>🧘 Surya Namaskar</li><li>🌳 Vrikshasana (Tree Pose)</li><li>🐍 Bhujangasana (Cobra Pose)</li><li>🐕 Adho Mukha Svanasana (Downward Dog)</li><li>🪑 Utkatasana (Chair Pose)</li><li>🦅 Garudasana (Eagle Pose)</li><li>🦋 Baddha Konasana (Butterfly Pose)</li><li>🧘 Setu Bandhasana (Bridge Pose)</li><li>🧘 Shavasana (Corpse Pose)</li>
+      </ul>
+    </div>
+  </section>
+
+  <section>
+    <h2>Every day</h2>
+    <p class="lede">The basics that make the rest work.</p>
+    <ul class="habits">
+      <li><span class="e">💧</span><b>Stay hydrated</b><span class="t">Through the day</span></li>
+      <li><span class="e">🥗</span><b>Eat well</b><span class="t">A balanced, protein-rich diet</span></li>
+      <li><span class="e">😴</span><b>Sleep 8 hours</b><span class="t">Every night</span></li>
+    </ul>
+  </section>
+</main>
+<footer><div class="wrap"><div class="num">Rise and Shine.</div></div></footer>
+</body>
+</html>
