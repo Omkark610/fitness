@@ -2,8 +2,11 @@
 Fitness
 
 🚶 60,000 steps — 10,000/day
+
 🏋️ 3 Gym sessions / week
+
 ❤️ 2 Cardio sessions — 30–45 min each
+
     🏸 Badminton / active sports
     🚶 Brisk walking
     🏃 Jogging/running
@@ -14,7 +17,9 @@ Fitness
     🏃 Treadmill
     🚲 Stationary bike
     🥊 Boxing
+    
 🧘 3 Yoga sessions — 20–30 min each
+
     🌬️ Pranayama
     🧘 Surya Namaskar
     🌳 Vrikshasana (Tree Pose)
@@ -25,7 +30,9 @@ Fitness
     🦋 Baddha Konasana (Butterfly Pose)
     🧘 Setu Bandhasana (Bridge Pose)
     🧘 Shavasana (Corpse Pose)
+    
 😴 1 Recovery day
+
 💧 Stay hydrated daily
 🥗 Eat a balanced, protein-rich diet
 😴 8 hours sleep/night
