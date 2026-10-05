@@ -5,7 +5,7 @@ Fitness
 
 🏋️ 3 Gym sessions / week
 
-❤️ 2 Cardio sessions — 30–45 min each
+❤️ 3 Cardio sessions — 30–45 min each
 
     🏸 Badminton / active sports
     🚶 Brisk walking
